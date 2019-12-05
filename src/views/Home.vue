@@ -1,5 +1,6 @@
 <template>
   <div>
+    <banniere/>
     <nav-bar/>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, debitis delectus
       doloremque exercitationem id in quae quod ratione sapiente? Inventore, pariatur, quis. Aperiam
@@ -113,10 +114,12 @@
 </template>
 
 <script>
+import Banniere from '../components/Banniere';
 import NavBar from '../components/NavBar';
 
 export default {
   components: {
+    Banniere,
     NavBar,
   },
 };
