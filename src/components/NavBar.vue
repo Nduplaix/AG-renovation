@@ -2,9 +2,15 @@
   <div class="nav-bar">
 <!--    <div class="nav-bar__logo"><img src="http://placehold.it/30x30" alt=""></div>-->
     <div class="nav-bar__content">
-      <div class="nav-bar__content__item">Notre entreprise</div>
-      <div class="nav-bar__content__item">nos projets</div>
-      <div class="nav-bar__content__item">nous contacter</div>
+      <div class="nav-bar__content__item">
+        <a href="#" v-scroll-to="'#description'">Notre entreprise</a>
+      </div>
+      <div class="nav-bar__content__item">
+        <a href="#" v-scroll-to="'#projects'">nos projets</a>
+      </div>
+      <div class="nav-bar__content__item">
+        <a href="#" v-scroll-to="'#contact'">nous contacter</a>
+      </div>
     </div>
   </div>
 </template>
@@ -36,6 +42,11 @@ export default {};
        justify-content: space-around;
        &__item {
          text-align: center;
+
+         a {
+           text-decoration: none;
+           color: #fff;
+         }
        }
      }
   }
