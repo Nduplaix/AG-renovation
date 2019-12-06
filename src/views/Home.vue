@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import Banniere from '../components/Banniere';
-import NavBar from '../components/NavBar';
-import Description from '../components/Description';
-import ProjectList from '../components/ProjectList';
+import Banniere from '../components/Banniere.vue';
+import NavBar from '../components/NavBar.vue';
+import Description from '../components/Description.vue';
+import ProjectList from '../components/ProjectList.vue';
 
 export default {
   components: {
@@ -19,6 +19,9 @@ export default {
     NavBar,
     Description,
     ProjectList,
+  },
+  mounted() {
+    console.log(this.$router);
   },
 };
 </script>

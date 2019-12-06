@@ -3,13 +3,13 @@
 <!--    <div class="nav-bar__logo"><img src="http://placehold.it/30x30" alt=""></div>-->
     <div class="nav-bar__content">
       <div class="nav-bar__content__item">
-        <a href="#" v-scroll-to="'#description'">Notre entreprise</a>
+        <span v-scroll-to="'#description'">Notre entreprise</span>
       </div>
       <div class="nav-bar__content__item">
-        <a href="#" v-scroll-to="'#projects'">nos projets</a>
+        <span v-scroll-to="'#projects'">nos projets</span>
       </div>
       <div class="nav-bar__content__item">
-        <a href="#" v-scroll-to="'#contact'">nous contacter</a>
+        <span v-scroll-to="'#contact'">nous contacter</span>
       </div>
     </div>
   </div>
