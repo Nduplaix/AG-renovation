@@ -1,18 +1,25 @@
 <template>
   <div id="app" class="app">
     <router-view/>
+    <footer>
+      <contact-us />
+    </footer>
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar';
+import ContactUs from './components/ContactUs';
 
 export default {
-  components: {NavBar},
+  components: {ContactUs},
 };
 </script>
 
 <style lang="scss" scoped>
+
+  footer {
+    margin-top: 30px;
+  }
 
   .fixed-logo {
     display: flex;

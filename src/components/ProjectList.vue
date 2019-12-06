@@ -1,5 +1,6 @@
 <template>
-  <div class="project-list">
+  <div id="projects" class="project-list">
+    <p class="h1 project-list__title">Nos projets</p>
     <div v-for="(project, index) in getProjects" :key="index" class="project-list__item">
       <div class="project-list__item__image">
         <img :src="project.img" alt="">
@@ -25,7 +26,14 @@ export default {
 
 <style lang="scss" scoped>
   .project-list {
-    .project-list__item {
+    padding-top: 100px;
+
+    &__title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    &__item {
       display: flex;
       justify-content: center;
       align-items: center;
