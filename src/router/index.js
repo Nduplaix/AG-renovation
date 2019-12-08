@@ -1,10 +1,11 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Router from 'vue-router';
 import Home from '../views/Home.vue';
 import Project from '../views/Project.vue';
+
 import { beforeRouteUpdate, beforeRouteEnter } from './RouterGuard';
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
 const routes = [
   {
@@ -28,7 +29,9 @@ const routes = [
   },
 ];
 
-const router = new VueRouter({
+const router = new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 });
 

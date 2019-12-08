@@ -39,7 +39,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px 50px;
+      padding: 10px 10%;
 
       div {
         width: 50%;
