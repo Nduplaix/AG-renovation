@@ -1,15 +1,19 @@
 <template>
   <div class="nav-bar">
-<!--    <div class="nav-bar__logo"><img src="http://placehold.it/30x30" alt=""></div>-->
+    <div class="nav-bar__logo">
+      <router-link :to="{name: 'home'}">
+        <img src="../assets/images/logo.png" alt="">
+      </router-link>
+    </div>
     <div class="nav-bar__content">
       <div class="nav-bar__content__item">
-        <a href="#" v-scroll-to="'#description'">Notre entreprise</a>
+        <a v-scroll-to="'#description'">Notre entreprise</a>
       </div>
       <div class="nav-bar__content__item">
-        <a href="#" v-scroll-to="'#projects'">nos projets</a>
+        <a v-scroll-to="'#projects'">nos projets</a>
       </div>
       <div class="nav-bar__content__item">
-        <a href="#" v-scroll-to="'#contact'">nous contacter</a>
+        <a v-scroll-to="'#contact'">nous contacter</a>
       </div>
     </div>
   </div>
@@ -26,14 +30,15 @@ export default {};
     top:0;
     display: flex;
     align-items: center;
-    height: 75px;
+    height: 100px;
     background-color: gray;
     &__logo {
+      margin-left: 10px;
       width: 100px;
       height: 100px;
 
       img {
-        width: 100%;
+        height: 100%;
       }
     }
      &__content {
@@ -46,6 +51,7 @@ export default {};
          a {
            text-decoration: none;
            color: #fff;
+           cursor: pointer;
          }
        }
      }

@@ -5,6 +5,7 @@
       <p>mail: contact@agrenovation.com</p>
       <p>telephone: 0601010101</p>
     </div>
+    <img src="../assets/images/logo.png" alt="" class="contact__logo">
     <div class="contact__form">
       <p class="h1">Nous contacter</p>
       <form action="#">
@@ -15,7 +16,7 @@
 
         <div class="form-group">
           <label for="contact--content">Votre question</label>
-          <textarea id="contact--content" class="form-control" v-model="mailContent" />
+          <textarea rows="5" id="contact--content" class="form-control" v-model="mailContent" />
         </div>
 
         <button type="submit" class="btn btn-success">Envoyer</button>
@@ -44,21 +45,23 @@ export default {
     align-items: center;
     justify-content: center;
 
-    .contact__info {
+    &__logo {
+      width: 10%;
+    }
+
+    &__info {
       padding: 40px;
-      text-align: right;
       margin-left: 10%;
-      width: 40%;
+      width: 30%;
 
       p:last-child {
         margin: 0;
       }
     }
-    .contact__form {
+    &__form {
       padding: 40px;
       margin-right: 10%;
       width: 40%;
-      border-left: 2px solid #fff;
     }
   }
 </style>

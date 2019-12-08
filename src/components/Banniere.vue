@@ -5,7 +5,9 @@
     <div class="banniere__content">
       <h1>A-G-Rénovation</h1>
       <p>Redonnez de l'avenir</p>
-      <a class="btn btn-primary" href="#" role="button">Connaitre l'entreprise</a>
+      <span class="btn btn-primary" v-scroll-to="'#description'" role="button">
+        Connaitre l'entreprise
+      </span>
     </div>
 
   </div>

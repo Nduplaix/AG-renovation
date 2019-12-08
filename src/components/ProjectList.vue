@@ -8,7 +8,9 @@
       <div class="project-list__item__description">
         <h2>{{project.label}}</h2>
         <p>{{project.shortDescription}}</p>
-        <router-link :to="{name: 'home'}">En savoir plus</router-link>
+        <router-link :to="{ name: 'project', params: { 'projectId': project.id } }">
+          En savoir plus
+        </router-link>
       </div>
     </div>
   </div>
@@ -37,7 +39,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px 50px;
+      padding: 10px 10%;
 
       div {
         width: 50%;

@@ -3,21 +3,7 @@
     <p class="h1 description__title">Connaitre notre entreprise</p>
     <div class="description__content">
       <div class="description__content--splited">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus error eveniet
-          harum hic, in incidunt maxime modi mollitia natus neque nisi non nulla optio quis
-          repudiandae, unde velit voluptatem!</p>
-        <p>Aliquam, architecto culpa deleniti dicta excepturi hic illo molestiae neque nihil, numquam
-          quae soluta totam velit? Aspernatur at aut cupiditate doloremque fuga fugiat laborum minus
-          quibusdam reprehenderit saepe. Accusamus, deserunt!</p>
-        <p>Beatae doloremque doloribus mollitia nisi optio quasi, soluta totam ullam velit vero
-          voluptates voluptatibus. Assumenda, blanditiis doloribus et ex facilis illum molestiae
-          nostrum, provident qui quisquam totam, unde vero voluptas.</p>
-        <p>Consectetur eum pariatur quasi! Accusamus asperiores eaque, earum eveniet, id iste laborum
-          maxime molestias natus odit omnis velit voluptatem! Aspernatur cupiditate dolorem eaque
-          fugiat molestias natus neque non omnis saepe.</p>
-        <p>Adipisci alias beatae consectetur delectus dignissimos distinctio doloremque eaque earum
-          fugit ipsa iure laboriosam libero, maxime molestias officia perferendis praesentium
-          provident quae quibusdam quo quos, recusandae reiciendis sunt temporibus vel!</p>
+        <img src="http://placehold.it/300x500">
       </div>
       <div class="description__content--splited">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis cumque ea error
