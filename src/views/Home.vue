@@ -19,9 +19,6 @@ export default {
     NavBar,
     Description,
     ProjectList,
-  },
-  mounted() {
-    console.log(this.$router);
-  },
+  }
 };
 </script>

@@ -3,7 +3,7 @@
     <nav-bar />
     <div class="project container">
       <h1>{{ getCurrentProject.label }}</h1>
-      <carousel :images="getCurrentProject.imgs"/>
+      <carousel :images="getCurrentProject.images"/>
       <div class="project__content">
         <p>{{getCurrentProject.description}}</p>
       </div>
@@ -14,7 +14,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import NavBar from '../components/NavBar.vue';
-import Carousel from '../components/Project/Carousel';
+import Carousel from '../components/Project/Carousel.vue';
 
 export default {
   components: {
