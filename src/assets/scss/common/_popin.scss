@@ -1,0 +1,32 @@
+@import '../variables';
+
+.popin {
+  display: flex;
+  width: 100%;
+  background: rgba($wd-border-light, 0.8);
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  &-dialog {
+    border-radius: $wd-border-radius-medium;
+    min-width: 400px;
+    background-color: $wd-white;
+    padding: $wd-padding-3 $wd-padding-5;
+  }
+
+  &-btn {
+    border-radius: $wd-border-radius-large;
+    font-size: $wd-popin-btn-font-xlarge;
+    padding: $wd-padding-2 $wd-padding-3;
+    line-height: 1;
+  }
+
+  .cancel_button {
+    text-align: center;
+    margin-top: $wd-margin-medium;
+    font-size: $wd-h3-font-size;
+    color: $wd-text;
+    text-decoration: underline;
+  }
+}

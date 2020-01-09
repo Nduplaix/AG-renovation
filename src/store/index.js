@@ -11,6 +11,8 @@ export default new Vuex.Store({
     doneProjects: [],
     doneProjectsPagination: {},
     currentProject: {},
+    adminProjectList: {},
+    adminProjectPagination: {},
   },
   getters: {
     doingProjects: state => state.doingProjects,
@@ -18,6 +20,8 @@ export default new Vuex.Store({
     doneProjects: state => state.doneProjects,
     doneProjectsPagination: state => state.doneProjectsPagination,
     getCurrentProject: state => state.currentProject,
+    adminProjectList: state => state.adminProjectList,
+    adminProjectPagination: state => state.adminProjectPagination,
   },
   mutations: {
     setDoingProjects(state, response) {
@@ -45,11 +49,22 @@ export default new Vuex.Store({
         max: parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page']),
         current: parseInt(getUrlVars(response.data['hydra:view']['@id'])['page']),
       };
-      console.log(state.doneProjectsPagination);
     },
     setCurrentProject(state, response) {
       state.currentProject = response.data;
-      console.log(response);
+    },
+    setAdminProjectList(state, response) {
+      state.adminProjectList = response.data['hydra:member'];
+      state.adminProjectPagination = {
+        next: response.data['hydra:view']['hydra:next']
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:next'])['page'])
+          : null,
+        previous: response.data['hydra:view']['hydra:previous']
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous'])['page'])
+          : null,
+        max: parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page']),
+        current: parseInt(getUrlVars(response.data['hydra:view']['@id'])['page']),
+      };
     },
   },
   actions: {
@@ -70,6 +85,20 @@ export default new Vuex.Store({
     async fetchCurrentProject({ commit }, projectId) {
       try {
         commit('setCurrentProject', await api.get(`/a_g_projects/${projectId}`));
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    async fetchAdminProjectList({ commit }, { page, maxPerPage, inProgress }) {
+      try {
+        commit('setAdminProjectList', await api.get(`/a_g_projects?page=${page || 1}&perPage=${maxPerPage || 4}&isInProgress=${inProgress}`));
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    async deleteProject(projectId) {
+      try {
+        await api.delete(`/a_g_projects/${projectId}`);
       } catch (e) {
         console.error(e);
       }

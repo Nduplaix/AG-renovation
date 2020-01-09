@@ -1,34 +1,9 @@
 <template>
   <div id="app" class="app">
     <router-view/>
-    <footer>
-      <contact-us />
-    </footer>
   </div>
 </template>
 
 <script>
-import ContactUs from './components/ContactUs';
-
-export default {
-  components: {ContactUs},
-};
+export default {};
 </script>
-
-<style lang="scss" scoped>
-
-  footer {
-    margin-top: 30px;
-  }
-
-  .fixed-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 150px;
-    img {
-      height: 100px;
-    }
-  }
-</style>
