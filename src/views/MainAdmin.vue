@@ -29,6 +29,6 @@ export default {
     display: flex;
     width: 100%;
     background: $wd-bright;
-    min-height: 100%;
+    min-height: 100vh;
   }
 </style>

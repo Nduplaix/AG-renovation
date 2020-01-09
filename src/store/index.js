@@ -138,13 +138,19 @@ export default new Vuex.Store({
       }
     },
     async deleteProject({}, id) {
-      console.log(id);
       try {
         await api.delete(`/a_g_projects/${id}`);
       } catch (e) {
         console.error(e);
       }
     },
+    async createProject({}, datas) {
+      try {
+        await api.post('/a_g_projects', datas);
+      } catch (e) {
+        console.error(e);
+      }
+    }
   },
 });
 

@@ -17,8 +17,12 @@
           <td>{{project.label}}</td>
           <td>{{project.city}}</td>
           <td class="action">
-            <div @click="editProject(project.id)"><i class="fas fa-edit"></i></div>
-            <div @click="deleteProject(project.id)"><i class="fas fa-trash-alt"></i></div>
+            <button @click="editProject(project.id)" class="btn btn-info">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button @click="deleteProject(project.id)" class="btn btn-danger">
+              <i class="fas fa-trash-alt"></i>
+            </button>
           </td>
         </tr>
         </tbody>

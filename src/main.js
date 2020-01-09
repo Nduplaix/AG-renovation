@@ -4,10 +4,13 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import 'bootstrap';
+import UUID from 'vue-uuid';
 
 import './assets/scss/app.scss';
 
 Vue.config.productionTip = false;
+
+Vue.use(UUID);
 
 Vue.use(VueScrollTo);
 

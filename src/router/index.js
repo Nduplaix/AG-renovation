@@ -7,7 +7,7 @@ import MainAdmin from '../views/MainAdmin.vue';
 import NoProject from '../components/admin/NoProject.vue';
 import ProjectListAdmin from '../components/admin/ProjectListAdmin.vue';
 import Login from '../views/Login.vue';
-import CreateProject from '../components/Project/CreateProject.vue';
+import CreateProject from '../components/Project/forms/CreateProject.vue';
 
 import { beforeRouteUpdate, beforeRouteEnter } from './RouterGuard';
 
@@ -34,7 +34,7 @@ const routes = [
       },
       {
         path: 'chantier/nouveau',
-        name: 'newProject',
+        name: 'createProject',
         component: CreateProject,
       },
       {
