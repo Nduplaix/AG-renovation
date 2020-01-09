@@ -12,6 +12,7 @@ const projectsInstance = axios.create(config);
 
 export function setJwt(jwt) {
   instance.defaults.headers.common = { Authorization: `Bearer ${jwt}` };
+  projectsInstance.defaults.headers.common = { Authorization: `Bearer ${jwt}` };
 }
 
 export const basicApi = instance;

@@ -44,7 +44,7 @@ export default {
     return {
       pageTitle: '',
       showDeletePopup: false,
-      currentProject: null,
+      currentProjectId: null,
     };
   },
   mounted() {
@@ -64,11 +64,11 @@ export default {
   methods: {
     deleteProject(id = null) {
       this.showDeletePopup = !this.showDeletePopup;
-      this.currentProject = id;
+      this.currentProjectId = id;
     },
     async confirmDelete() {
       this.showDeletePopup = false;
-      await this.$store.dispatch('deleteProject', this.currentProject);
+      await this.$store.dispatch('deleteProject', this.currentProjectId);
       this.$router.push({ name: 'admin' });
     },
   },

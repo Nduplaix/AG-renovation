@@ -1,7 +1,7 @@
 <template>
   <aside id="sidebar" class="sidebar">
     <div id="top-sidebar" class="top-sidebar">
-      <button class="btn btn-primary">Deconnection</button>
+      <button class="btn btn-primary" @click="disconnect">Deconnection</button>
     </div>
     <div class="order-list">
       <table class="table table-striped">
@@ -46,6 +46,10 @@ export default {
     },
     redirectTo(pathName) {
       this.$router.push({ name: pathName });
+    },
+    disconnect() {
+      this.$store.commit('logout');
+      this.$router.push({ name: 'login' });
     },
   },
 };

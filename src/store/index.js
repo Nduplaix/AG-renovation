@@ -2,10 +2,17 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { api, basicApi, setJwt } from '../lib/api';
 
+function parseToken(token) {
+  return JSON.parse(atob(token.split('.')[1]));
+}
+
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    userLogged: false,
+    currentUser: {},
     doingProjects: [],
     doingProjectsPagination: {},
     doneProjects: [],
@@ -15,6 +22,8 @@ export default new Vuex.Store({
     adminProjectPagination: {},
   },
   getters: {
+    currentUser: st => st.currentUser,
+    getUserLogged: st => st.userLogged,
     doingProjects: state => state.doingProjects,
     doingProjectsPagination: state => state.doingProjectsPagination,
     doneProjects: state => state.doneProjects,
@@ -24,6 +33,21 @@ export default new Vuex.Store({
     adminProjectPagination: state => state.adminProjectPagination,
   },
   mutations: {
+    setUser(state, token) {
+      const payload = parseToken(token);
+      if (payload.roles.indexOf('ROLE_ADMIN') !== -1) {
+        state.userLogged = true;
+        localStorage.setItem('currentUser', token);
+        setJwt(token);
+        state.currentUser = payload;
+      }
+    },
+
+    logout(state) {
+      state.currentUser = {};
+      state.userLogged = false;
+      localStorage.removeItem('currentUser');
+    },
     setDoingProjects(state, response) {
       state.doingProjects = response.data['hydra:member'];
       state.doingProjectsPagination = {
@@ -68,6 +92,23 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async getAuthToken({ commit }, { username, password }) {
+      const response = await basicApi.post('/login_check', {
+        username,
+        password,
+      });
+      if (response.data.data.sites.indexOf(3) !== -1) {
+        commit('setUser', response.data.token);
+        return response;
+      }
+    },
+
+    setStorageToken({ commit }) {
+      const token = localStorage.getItem('currentUser');
+      if (token) {
+        commit('setUser', token);
+      }
+    },
     async fetchDoingProjects({ commit }, page = 1) {
       try {
         commit('setDoingProjects', await api.get(`/a_g_projects?page=${page}&isInProgress=true`));
@@ -96,9 +137,10 @@ export default new Vuex.Store({
         console.error(e);
       }
     },
-    async deleteProject(projectId) {
+    async deleteProject({}, id) {
+      console.log(id);
       try {
-        await api.delete(`/a_g_projects/${projectId}`);
+        await api.delete(`/a_g_projects/${id}`);
       } catch (e) {
         console.error(e);
       }
