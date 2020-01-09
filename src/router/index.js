@@ -6,6 +6,8 @@ import Main from '../views/Main.vue';
 import MainAdmin from '../views/MainAdmin.vue';
 import NoProject from '../components/admin/NoProject.vue';
 import ProjectListAdmin from '../components/admin/ProjectListAdmin.vue';
+import Login from '../views/Login.vue';
+import CreateProject from '../components/Project/CreateProject.vue';
 
 import { beforeRouteUpdate, beforeRouteEnter } from './RouterGuard';
 
@@ -13,13 +15,27 @@ Vue.use(Router);
 
 const routes = [
   {
+    path: '/login',
+    name: 'login',
+    component: Login,
+  },
+  {
     path: '/admin',
-    component: MainAdmin,
+    component: {
+      ...MainAdmin,
+      beforeRouteEnter,
+      beforeRouteUpdate,
+    },
     children: [
       {
         path: '',
         name: 'admin',
         component: NoProject,
+      },
+      {
+        path: 'chantier/nouveau',
+        name: 'newProject',
+        component: CreateProject,
       },
       {
         path: 'chantiers-en-cours',

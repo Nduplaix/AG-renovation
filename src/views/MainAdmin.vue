@@ -11,6 +11,11 @@
 import Sidebar from '../components/admin/Sidebar.vue';
 
 export default {
+  mounted() {
+    if (!this.$store.getters.getUserLogged) {
+      this.$router.push({ name: 'login' });
+    }
+  },
   components: {
     Sidebar,
   },
