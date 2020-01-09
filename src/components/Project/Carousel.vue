@@ -2,7 +2,7 @@
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li
-        v-for="(index) in images"
+        v-for="index in images.length"
         :key="index"
         data-target="#carouselExampleIndicators"
         data-slide-to="index"
@@ -15,7 +15,12 @@
         v-for="(image, index) in images"
         :key="index"
         :class="{active: index === 0}">
-        <img :src="image" class="d-block w-100" alt="...">
+        <before-after-images
+          :img-before="image.before"
+          :img-after="image.after"
+          v-if="image.before && image.after"
+        />
+        <img :src="image" class="d-block w-100" alt="..." v-else>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -30,7 +35,10 @@
 </template>
 
 <script>
+import BeforeAfterImages from '../BeforeAfterImages.vue';
+
 export default {
+  components: { BeforeAfterImages },
   props: {
     images: { type: Array, required: true },
   },
