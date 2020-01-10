@@ -52,7 +52,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.name);
     if (this.$route.name === 'admin-project-doing-list') {
       this.pageTitle = 'Chantiers en cours';
     } else {
@@ -69,6 +68,9 @@ export default {
     deleteProject(id = null) {
       this.showDeletePopup = !this.showDeletePopup;
       this.currentProjectId = id;
+    },
+    editProject(id) {
+      this.$router.push({ name: 'editProject', params: { id } });
     },
     async confirmDelete() {
       this.showDeletePopup = false;

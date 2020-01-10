@@ -53,7 +53,8 @@
               class="mt-3"
               :index="index"
               :image="image"
-              :basic-image="typeof image.basicImage === 'undefined'"
+              :basic-image="typeof image.before === 'undefined' &&
+                typeof image.after === 'undefined'"
               @imageChange="updateImage"
               @deleteImage="deleteImage"
             />
@@ -75,8 +76,9 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { mapGetters } from 'vuex';
 import ImageItem from './ImageItem.vue';
-import axios from "axios";
 
 export default {
   components: {
@@ -92,6 +94,17 @@ export default {
       isFinish: false,
       baseUrl: process.env.VUE_APP_API_URL,
     };
+  },
+  computed: {
+    ...mapGetters(['getCurrentProject']),
+  },
+  mounted() {
+    this.label = this.getCurrentProject.label;
+    this.city = this.getCurrentProject.city;
+    this.description = this.getCurrentProject.description;
+    this.shortDescription = this.getCurrentProject.shortDescription;
+    this.isFinish = !this.getCurrentProject.isInProgress;
+    this.images = this.getCurrentProject.images;
   },
   methods: {
     async create() {
@@ -118,17 +131,20 @@ export default {
           {
             headers: {
               'Content-Type': 'multipart/form-data',
-              Authorization: `Bearer ${localStorage.getItem('currentUser')}`,
+              'Authorization': `Bearer ${localStorage.getItem('currentUser')}`,
             },
           });
 
-        await this.$store.dispatch('createProject', {
-          label: this.label,
-          city: this.label,
-          description: this.description,
-          shortDescription: this.shortDescription,
-          isInProgress: !this.isFinish,
-          images: imageArray.data,
+        await this.$store.dispatch('editProject', {
+          id: this.getCurrentProject.id,
+          data: {
+            label: this.label,
+            city: this.label,
+            description: this.description,
+            shortDescription: this.shortDescription,
+            isInProgress: !this.isFinish,
+            images: imageArray.data,
+          },
         });
 
         await this.$router.push({ name: 'admin' });

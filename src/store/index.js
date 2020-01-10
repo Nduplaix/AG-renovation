@@ -57,8 +57,12 @@ export default new Vuex.Store({
         previous: response.data['hydra:view']['hydra:previous']
           ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous'])['page'])
           : null,
-        max: parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page']),
-        current: parseInt(getUrlVars(response.data['hydra:view']['@id'])['page']),
+        max: response.data['hydra:view']['hydra:last']
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page'])
+          : null,
+        current: response.data['hydra:view']['@id']
+          ? parseInt(getUrlVars(response.data['hydra:view']['@id'])['page'])
+          : null,
       };
     },
     setDoneProjects(state, response) {
@@ -70,8 +74,12 @@ export default new Vuex.Store({
         previous: response.data['hydra:view']['hydra:previous']
           ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous'])['page'])
           : null,
-        max: parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page']),
-        current: parseInt(getUrlVars(response.data['hydra:view']['@id'])['page']),
+        max: response.data['hydra:view']['hydra:last']
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page'])
+          : null,
+        current: response.data['hydra:view']['@id']
+          ? parseInt(getUrlVars(response.data['hydra:view']['@id'])['page'])
+          : null,
       };
     },
     setCurrentProject(state, response) {
@@ -86,8 +94,12 @@ export default new Vuex.Store({
         previous: response.data['hydra:view']['hydra:previous']
           ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous'])['page'])
           : null,
-        max: parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page']),
-        current: parseInt(getUrlVars(response.data['hydra:view']['@id'])['page']),
+        max: response.data['hydra:view']['hydra:last']
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page'])
+          : null,
+        current: response.data['hydra:view']['@id']
+          ? parseInt(getUrlVars(response.data['hydra:view']['@id'])['page'])
+          : null,
       };
     },
   },
@@ -150,7 +162,14 @@ export default new Vuex.Store({
       } catch (e) {
         console.error(e);
       }
-    }
+    },
+    async editProject({}, { id, data }) {
+      try {
+        await api.patch(`/a_g_projects/${id}`, data);
+      } catch (e) {
+        console.error(e);
+      }
+    },
   },
 });
 

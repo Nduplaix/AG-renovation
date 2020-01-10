@@ -4,10 +4,13 @@
       <p>Image {{ index }}</p>
       <div class="custom-file">
         <label :for="`img-${uid}-before`" class="custom-file-label">
-          {{ internalImage.image.name ? internalImage.image.name : 'Choisir une image' }}
+          {{
+            internalImage.name ? internalImage.name :
+            internalImage ? internalImage : 'Choisir une image'
+          }}
         </label>
         <input
-          required="required"
+          :required="false"
           type="file"
           class="custom-file-input"
           :id="`img-${uid}`"
@@ -30,10 +33,13 @@
         <p>Avant</p>
         <div class="custom-file">
           <label :for="`img-${uid}-before`" class="custom-file-label">
-            {{ internalImage.before ? internalImage.before.name : 'Choisir une image' }}
+            {{
+              internalImage.before.name ? internalImage.before.name :
+              internalImage.before ? internalImage.before : 'Choisir une image'
+            }}
           </label>
           <input
-            required="required"
+            :required="false"
             type="file"
             class="custom-file-input"
             :id="`img-${uid}-before`"
@@ -44,10 +50,13 @@
         <p>Après</p>
         <div class="custom-file">
           <label :for="`img-${uid}-after`" class="custom-file-label">
-            {{ internalImage.after ? internalImage.after.name : 'Choisir une image' }}
+            {{
+              internalImage.after.name ? internalImage.after.name :
+              internalImage.after ? internalImage.after : 'Choisir une image'
+            }}
           </label>
           <input
-            required="required"
+            :required="false"
             type="file"
             class="custom-file-input"
             :id="`img-${uid}-after`"
@@ -94,7 +103,7 @@ export default {
   },
   methods: {
     processFile(event) {
-      this.internalImage.image = event.target.files[0];
+      this.internalImage = event.target.files[0];
       this.$emit('imageChange', this.internalImage, this.index);
     },
     processBeforeFile(event) {
