@@ -10,6 +10,8 @@ async function handleRouteChange(to, from, next) {
     await store.dispatch('fetchAdminProjectList', { maxPerPage: 20, inProgress: true });
   } else if (to.name === 'admin-project-done-list') {
     await store.dispatch('fetchAdminProjectList', { maxPerPage: 20, inProgress: false });
+  } else if (to.name === 'editProject') {
+    await store.dispatch('fetchCurrentProject', to.params.id);
   }
 
   next();

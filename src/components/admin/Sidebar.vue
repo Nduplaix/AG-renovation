@@ -23,7 +23,7 @@
           <th scope="row">afficher les chantiers finis</th>
           <td class="action"><i class="fas fa-eye"></i></td>
         </tr>
-        <tr>
+        <tr @click="createProject">
           <th scope="row">ajouter un chantiers</th>
           <td class="action"><i class="fas fa-plus-circle"></i></td>
         </tr>
@@ -41,6 +41,9 @@ export default {
     };
   },
   methods: {
+    createProject() {
+      this.$router.push({ name: 'createProject' });
+    },
     openMenuList() {
       this.showListMenu = !this.showListMenu;
     },

@@ -46,7 +46,7 @@ export default {
       position: relative;
       z-index: 1;
       width: 100%;
-      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+      clip-path: polygon(100% 0, 0 100%, 100% 100%);
 
       &:hover {
         z-index: 2;

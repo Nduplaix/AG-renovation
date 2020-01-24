@@ -1,7 +1,7 @@
 <template>
   <div class="no-order">
     <h3>
-      <i class="fas fa-arrow-left"></i><span>Selectionnez un projet</span>
+      <i class="fas fa-arrow-left"></i><span>Selectionnez un chantier</span>
     </h3>
   </div>
 </template>
