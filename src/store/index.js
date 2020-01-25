@@ -52,16 +52,16 @@ export default new Vuex.Store({
       state.doingProjects = response.data['hydra:member'];
       state.doingProjectsPagination = {
         next: response.data['hydra:view']['hydra:next']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:next'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:next']).page)
           : null,
         previous: response.data['hydra:view']['hydra:previous']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous']).page)
           : null,
         max: response.data['hydra:view']['hydra:last']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last']).page)
           : null,
         current: response.data['hydra:view']['@id']
-          ? parseInt(getUrlVars(response.data['hydra:view']['@id'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['@id']).page)
           : null,
       };
     },
@@ -69,16 +69,16 @@ export default new Vuex.Store({
       state.doneProjects = response.data['hydra:member'];
       state.doneProjectsPagination = {
         next: response.data['hydra:view']['hydra:next']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:next'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:next']).page)
           : null,
         previous: response.data['hydra:view']['hydra:previous']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous']).page)
           : null,
         max: response.data['hydra:view']['hydra:last']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last']).page)
           : null,
         current: response.data['hydra:view']['@id']
-          ? parseInt(getUrlVars(response.data['hydra:view']['@id'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['@id']).page)
           : null,
       };
     },
@@ -89,16 +89,16 @@ export default new Vuex.Store({
       state.adminProjectList = response.data['hydra:member'];
       state.adminProjectPagination = {
         next: response.data['hydra:view']['hydra:next']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:next'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:next']).page)
           : null,
         previous: response.data['hydra:view']['hydra:previous']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:previous']).page)
           : null,
         max: response.data['hydra:view']['hydra:last']
-          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['hydra:last']).page)
           : null,
         current: response.data['hydra:view']['@id']
-          ? parseInt(getUrlVars(response.data['hydra:view']['@id'])['page'])
+          ? parseInt(getUrlVars(response.data['hydra:view']['@id']).page)
           : null,
       };
     },
@@ -175,7 +175,7 @@ export default new Vuex.Store({
 
 function getUrlVars(url) {
   const vars = {};
-  let parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+  const parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
     vars[key] = value;
   });
   return vars;

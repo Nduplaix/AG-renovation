@@ -6,27 +6,31 @@
     <validation-popin type="warning" @close="displayErrorPopin = false" v-if="displayErrorPopin">
       Il y a eu une erreur dans l'envoie de votre mail !
     </validation-popin>
-    <div class="contact__info">
-      <p class="h2">Angelo Opigez - Gregory Caron</p>
-      <p>mail: contact@agrenovation.com</p>
-      <p>telephone: 0601010101</p>
-    </div>
-    <img src="../assets/images/logo.png" alt="" class="contact__logo">
-    <div class="contact__form">
-      <p class="h1">Nous contacter</p>
-      <form @submit.prevent="sendMail">
-        <div class="form-group">
-          <label for="contact--email">Votre adresse e-mail</label>
-          <input type="email" id="contact--email" class="form-control" v-model="email">
-        </div>
+    <div class="row align-items-center w-100">
+      <div class="contact__info col-md-3">
+        <p class="h2">Angelo Opigez - Gregory Caron</p>
+        <p>mail: contact@agrenovation.com</p>
+        <p>telephone: 0601010101</p>
+      </div>
+      <div class="col-md-2">
+        <img src="../assets/images/logo.png" alt="" class="contact__logo">
+      </div>
+      <div class="contact__form col-md-6">
+        <p class="h1">Nous contacter</p>
+        <form @submit.prevent="sendMail">
+          <div class="form-group">
+            <label for="contact--email">Votre adresse e-mail</label>
+            <input type="email" id="contact--email" class="form-control" v-model="email">
+          </div>
 
-        <div class="form-group">
-          <label for="contact--content">Votre question</label>
-          <textarea rows="5" id="contact--content" class="form-control" v-model="mailContent" />
-        </div>
+          <div class="form-group">
+            <label for="contact--content">Votre question</label>
+            <textarea rows="5" id="contact--content" class="form-control" v-model="mailContent" />
+          </div>
 
-        <button type="submit" class="btn btn-success">Envoyer</button>
-      </form>
+          <button type="submit" class="btn btn-success">Envoyer</button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -76,21 +80,15 @@ export default {
 
 <style lang="scss" scoped>
   .contact {
-    width: 100%;
     background-color: #3d5170;
     color: #ccd6df;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     &__logo {
-      width: 10%;
+      height: auto;
     }
 
     &__info {
       padding: 40px;
-      margin-left: 10%;
-      width: 30%;
 
       p:last-child {
         margin: 0;
@@ -98,8 +96,6 @@ export default {
     }
     &__form {
       padding: 40px;
-      margin-right: 10%;
-      width: 40%;
     }
   }
 </style>

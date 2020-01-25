@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import VueScrollTo from 'vue-scrollto';
+import UUID from 'vue-uuid';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import 'jquery';
+import 'popper.js';
 import 'bootstrap';
-import UUID from 'vue-uuid';
 
 import './assets/scss/app.scss';
 

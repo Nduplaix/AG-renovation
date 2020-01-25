@@ -75,8 +75,8 @@
 </template>
 
 <script>
+import axios from 'axios';
 import ImageItem from './ImageItem.vue';
-import axios from "axios";
 
 export default {
   components: {

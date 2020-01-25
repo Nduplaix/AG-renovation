@@ -2,8 +2,8 @@
   <div id="projects" class="project-list">
     <div class="project-list__done">
       <p class="h1 project-list__title">Nos chantiers terminés</p>
-      <div v-for="(project, index) in doneProjects" :key="index" class="project-list__item">
-        <div class="project-list__item__image">
+      <div v-for="(project, index) in doneProjects" :key="index" class="project-list__item row align-items-center w-100">
+        <div class="project-list__item__image col-md-6">
           <before-after-images
             :img-before="project.images[0].before"
             :img-after="project.images[0].after"
@@ -11,7 +11,7 @@
           />
           <img :src="project.images[0]" alt="" v-else>
         </div>
-        <div class="project-list__item__description">
+        <div class="project-list__item__description col-md-6">
           <h2>{{project.label}}</h2>
           <p>{{project.shortDescription}}</p>
           <router-link :to="{ name: 'project', params: { 'projectId': project.id } }">
@@ -30,8 +30,8 @@
     </div>
     <div class="project-list__doing mt-5">
       <p class="h1 project-list__title">Nos chantiers en cours</p>
-      <div v-for="(project, index) in doingProjects" :key="index" class="project-list__item">
-        <div class="project-list__item__image">
+      <div v-for="(project, index) in doingProjects" :key="index" class="project-list__item row align-items-center w-100">
+        <div class="project-list__item__image col-md-6">
           <before-after-images
             :img-before="project.images[0].before"
             :img-after="project.images[0].after"
@@ -39,7 +39,7 @@
           />
           <img :src="project.images[0]" alt="" v-else>
         </div>
-        <div class="project-list__item__description">
+        <div class="project-list__item__description col-md-6">
           <h2>{{project.label}}</h2>
           <p>{{project.shortDescription}}</p>
           <router-link :to="{ name: 'project', params: { 'projectId': project.id } }">
@@ -91,7 +91,7 @@ export default {
 
 <style lang="scss" scoped>
   .project-list {
-    padding-top: 100px;
+    padding-top: 150px;
 
     &__title {
       text-align: center;
@@ -99,17 +99,12 @@ export default {
     }
 
     &__item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       padding: 10px 10%;
 
       &__description {
-        width: 50%;
         padding: 20px;
       }
       &__image {
-        width: 50%;
 
         & > img {
           width: 100%;

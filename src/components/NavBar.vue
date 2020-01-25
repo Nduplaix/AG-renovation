@@ -1,59 +1,58 @@
 <template>
-  <div class="nav-bar">
-    <div class="nav-bar__logo">
-      <router-link :to="{name: 'home'}">
-        <img src="../assets/images/logo.png" alt="">
-      </router-link>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-light">
+    <router-link class="navbar-brand" :to="{name: 'home'}">
+      <img src="../assets/images/logo.png" alt="">
+    </router-link>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="changeDisplayMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" v-if="displayMenu">
+      <ul class="navbar-nav mr-auto w-100 mr-0 justify-content-around">
+        <li class="nav-item active">
+          <a class="nav-link" v-scroll-to="'#description'" v-if="$route.name === 'home'">Notre entreprise</a>
+          <router-link class="nav-link" to="/#description" v-else>Notre entreprise</router-link>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" v-scroll-to="'#projects'" v-if="$route.name === 'home'">Nos chantiers</a>
+          <router-link class="nav-link" to="/#projects" v-else>Nos chantiers</router-link>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" v-scroll-to="'#contact'" v-if="$route.name === 'home'">Nous contacter</a>
+          <router-link class="nav-link" to="/#contact" v-else>Nous contacter</router-link>
+        </li>
+      </ul>
     </div>
-    <div class="nav-bar__content">
-      <div class="nav-bar__content__item">
-        <a v-scroll-to="'#description'">Notre entreprise</a>
-      </div>
-      <div class="nav-bar__content__item">
-        <a v-scroll-to="'#projects'">nos projets</a>
-      </div>
-      <div class="nav-bar__content__item">
-        <a v-scroll-to="'#contact'">nous contacter</a>
-      </div>
-    </div>
-  </div>
+  </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      displayMenu: !this.isMobile(),
+    };
+  },
+  methods: {
+    isMobile() {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true;
+      }
+      return false;
+    },
+    changeDisplayMenu() {
+      this.displayMenu = !this.displayMenu;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .nav-bar {
-    position: sticky;
-    z-index: 99999;
-    top:0;
-    display: flex;
-    align-items: center;
-    height: 100px;
-    background-color: gray;
-    &__logo {
-      margin-left: 10px;
-      width: 100px;
-      height: 100px;
+  img {
+    max-height: 100px;
+  }
 
-      img {
-        height: 100%;
-      }
-    }
-     &__content {
-       width: 100%;
-       display: flex;
-       justify-content: space-around;
-       &__item {
-         text-align: center;
-
-         a {
-           text-decoration: none;
-           color: #fff;
-           cursor: pointer;
-         }
-       }
-     }
+  .nav-item {
+    cursor: pointer;
   }
 </style>

@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 const config = {
-  baseURL: `${process.env.VUE_APP_API_URL}/api`,
+  baseURL: `${process.env.VUE_APP_API_URL}`,
 };
 
 const instance = axios.create(config);
 
-config.baseURL = `${process.env.VUE_APP_API_URL}/api/ag-renovation`;
+config.baseURL = `${process.env.VUE_APP_API_URL}/ag-renovation`;
 
 const projectsInstance = axios.create(config);
 
