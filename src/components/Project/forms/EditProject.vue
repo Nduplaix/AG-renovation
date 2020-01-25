@@ -131,7 +131,7 @@ export default {
           {
             headers: {
               'Content-Type': 'multipart/form-data',
-              'Authorization': `Bearer ${localStorage.getItem('currentUser')}`,
+              Authorization: `Bearer ${localStorage.getItem('currentUser')}`,
             },
           });
 

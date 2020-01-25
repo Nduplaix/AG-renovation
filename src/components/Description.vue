@@ -1,11 +1,11 @@
 <template>
   <div id="description" class="description container">
     <p class="h1 description__title">Connaitre notre entreprise</p>
-    <div class="description__content">
-      <div class="description__content--splited">
+    <div class="description__content row align-items-center">
+      <div class="description__content--splited col-md-6 d-flex justify-content-center">
         <img src="http://placehold.it/300x500">
       </div>
-      <div class="description__content--splited">
+      <div class="description__content--splited col-md-6">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis cumque ea error
           impedit ipsa iste iusto magni modi molestiae nesciunt, non optio perferendis ratione sunt
           temporibus totam, unde vel?</p>
@@ -32,7 +32,7 @@ export default {};
 
 <style lang="scss" scoped>
   .description {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,9 +42,6 @@ export default {};
     }
 
     &__content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: justify;
 
       &--splited {
